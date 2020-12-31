@@ -17,9 +17,9 @@ steps:
 # configure this task with the *Mono* version that is associated with the
 # Xamarin SDK version that you need, and set the "enabled" property to true.
 # See https://go.microsoft.com/fwlink/?linkid=871629
-- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_4_1
+- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 6_12_0
   displayName: 'Select the Xamarin SDK version'
-  enabled: false
+  enabled: true
 
 - task: NuGetToolInstaller@1
 
