@@ -9,6 +9,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: iOS
       run: |
-        cd KnApp
         nuget restore
         msbuild KnApp.iOS/KnApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
