@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>KnApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>se.appokalyps.KnApp</string>
+	<string>se.appokalyps.knapp</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
