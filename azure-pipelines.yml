@@ -21,9 +21,11 @@ steps:
   displayName: 'Select the Xamarin SDK version'
   enabled: false
 
-- script: |
-    dotnet tool update --global boots
-    boots --stable XamariniOS
+- task: CmdLine@2
+  inputs:
+    script: |
+      dotnet tool update --global boots
+      boots --stable XamariniOS
 
 - task: NuGetToolInstaller@1
 
