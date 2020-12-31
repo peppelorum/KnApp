@@ -19,7 +19,11 @@ steps:
 # See https://go.microsoft.com/fwlink/?linkid=871629
 - script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 6_12_0
   displayName: 'Select the Xamarin SDK version'
-  enabled: true
+  enabled: false
+
+- script: |
+    dotnet tool update --global boots
+    boots --stable XamariniOS
 
 - task: NuGetToolInstaller@1
 
