@@ -1,0 +1,14 @@
+name: CI on Push and Pull Request
+
+on: [push, pull_request]
+
+jobs:                    
+  iOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: iOS
+      run: |
+        cd KnApp
+        nuget restore
+        msbuild KnApp.iOS/KnApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
