@@ -10,4 +10,12 @@ jobs:
     - name: iOS
       run: |
         nuget restore
-        msbuild KnApp.iOS/KnApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+        msbuild KnApp.iOS/KnApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhone /p:Configuration=Release /p:IpaPackageDir="dist"
+        
+    - name: 'Upload app to TestFlight'
+      uses: apple-actions/upload-testflight-build@v1
+      with: 
+        app-path: 'path/to/application.ipa' 
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
