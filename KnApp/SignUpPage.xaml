@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="KnApp.SignUpPage"
+			 xmlns:local="clr-namespace:KnApp"
+			 Title="Sign Up">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20" />
+            <On Platform="Android" Value="20" />
+        </OnPlatform>
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="StartAndExpand">
+			<Label Text="Email address" />
+			<Entry x:Name="emailEntry" Keyboard="Email" TextChanged="FormIsValid"  />
+			<Label Text="Password" />
+			<Entry x:Name="passwordEntry" IsPassword="true" TextChanged="FormIsValid" />
+			<Label Text="Password again" />
+			<Entry x:Name="passwordConfirmEntry" IsPassword="true" TextChanged="FormIsValid"  />
+			<local:ButtonWithActivityIndicator x:Name="ButtonWithSpinner" IsEnabled="False" Text="Registrera" Clicked="OnSignUpButtonClicked" ActivityIndicatorColor="White"></local:ButtonWithActivityIndicator>
+			<!--<Button Text="Sign Up" Clicked="OnSignUpButtonClicked" />-->
+			<Label x:Name="messageLabel" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

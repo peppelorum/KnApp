@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+	<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:KnApp"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="KnApp.LoginPage" Title="Login">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Sign Up" Clicked="OnSignUpButtonClicked" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20" />
+            <On Platform="Android" Value="20" />
+        </OnPlatform>
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="StartAndExpand">
+			<Label Text="Username" />
+			<Entry x:Name="usernameEntry" Placeholder="username" />
+			<Label Text="Password" />
+			<Entry x:Name="passwordEntry" IsPassword="true" />
+			<!--<Button Text="Login" Clicked="OnLoginButtonClicked" />-->
+			<local:ButtonWithActivityIndicator x:Name="ButtonWithSpinner" Text="Login" Clicked="OnLoginButtonClicked" ActivityIndicatorColor="White"></local:ButtonWithActivityIndicator>
+			<!--<local:ButtonWithActivityIndicator x:Name="ButtonWithSpinner" Text="Load" ActivityIndicatorColor="White" />-->
+			<Label x:Name="messageLabel" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
+
+
+
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="KnApp.LoginPage" xmlns:local="clr-namespace:KnApp" Title="Login">-->
