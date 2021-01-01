@@ -5,6 +5,11 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
+
 namespace KnApp.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -22,6 +27,11 @@ namespace KnApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
+            Distribute.DontCheckForUpdatesInDebug();
+            AppCenter.Start("16e2ed72-ca01-40ad-8eb0-78ef32a91cd0",
+                   typeof(Analytics), typeof(Crashes));
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
