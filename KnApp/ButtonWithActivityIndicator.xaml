@@ -4,7 +4,6 @@
       x:Class="KnApp.ButtonWithActivityIndicator">
         <Button x:Name="InnerButton"
             Text="Button text"
-            BackgroundColor="DarkBlue"
             TextColor="White"
             HeightRequest="50"
             CornerRadius="25"

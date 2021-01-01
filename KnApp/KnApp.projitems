@@ -39,10 +39,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ButtonWithActivityIndicator.xaml.cs">
       <DependentUpon>ButtonWithActivityIndicator.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Token.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Styles.xml" />
   </ItemGroup>
 </Project>

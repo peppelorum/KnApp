@@ -1,5 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="KnApp.App">
     <Application.Resources>
+
+        
+
+        <Color x:Key="DarkGreen">#283618</Color>
+        <Color x:Key="Green">#606C38</Color>
+        <Color x:Key="OffWhite">#FEFAE0</Color>
+        <Color x:Key="LightBrown">#DDA15E</Color>
+        <Color x:Key="Brown">#BC6C25</Color>
+
+        
+        <Color x:Key="DarkBg">#000000</Color>
+        <Color x:Key="DarkBgEntry">#1c1c1e</Color>
+
+        <Color x:Key="LightBg">#ffffff</Color>
+        <Color x:Key="LightBgEntry">#e5e5e5</Color>
+        
+        <!--<Color x:Key="Green">#8A817C</Color>
+        <Color x:Key="OffWhite">#F2F2F2</Color>
+        <Color x:Key="LightBrown">#DDA15E</Color>
+        <Color x:Key="Brown">#BC6C25</Color>-->
+
+        <!-- Light colors -->
+        <!--<Color x:Key="LightBg">WhiteSmoke</Color>
+        <Color x:Key="LightText">Green</Color>-->
+
+        <!-- Dark colors -->
+        <!--<Color x:Key="DarkBg">Black</Color>
+        <Color x:Key="DarkText">Yellow</Color>-->
+
+        <!-- Implicit styles -->
+        <Style TargetType="{x:Type Label}" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkBg}, Dark={StaticResource OffWhite}}" />
+        </Style>
+
+        <Style TargetType="{x:Type Entry}" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBgEntry}, Dark={StaticResource DarkBgEntry}}" />
+        </Style>
+
+        <Style TargetType="{x:Type ContentPage}" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBg}, Dark={StaticResource DarkBg}}" />
+        </Style>
+
+        <Style TargetType="{x:Type Button}" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBrown}, Dark={StaticResource Brown}}" />
+        </Style>
+
+
+        <!--<Style x:Key="ButtonStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
+        </Style>-->
+
     </Application.Resources>
 </Application>

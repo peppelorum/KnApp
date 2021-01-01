@@ -19,19 +19,6 @@ namespace KnApp
 			//ButtonEnabled = false;
 		}
 
-
-        private async void OnClicked(object sender, EventArgs e)
-        {
-            ButtonWithSpinner.IsBusy = !ButtonWithSpinner.IsBusy;
-
-            // simulate long time process
-            if (ButtonWithSpinner.IsBusy)
-            {
-                await Task.Delay(3000);
-                OnClicked(this, EventArgs.Empty);
-            }
-        }
-
         async void OnSignUpButtonClicked(object sender, EventArgs e)
 		{
 
@@ -76,12 +63,14 @@ namespace KnApp
 
 				else if (response.StatusCode < 300 && response.StatusCode > 200)
 				{
+					SignupButton.IsBusy = false;
 					var result = await response.GetStringAsync();
 					Console.WriteLine($"Success! {result}");
 					await DisplayAlert("Ooops!", "Något fel inträffade: {result}", "OK");
 				}
 				else if (response.StatusCode < 500)
 				{
+					SignupButton.IsBusy = false;
 					var error = await response.GetStringAsync();
 					Console.WriteLine($"You did something wrong! {error}");
 					await DisplayAlert("Ooops!", error, "OK");
@@ -90,6 +79,7 @@ namespace KnApp
 				}
 				else
 				{
+					SignupButton.IsBusy = false;
 					var error = await response.GetStringAsync();
 					Console.WriteLine($"We did something wrong! {error}");
 					await DisplayAlert("Ooops!", error, "OK");
@@ -142,10 +132,10 @@ namespace KnApp
 
 			if (valid)
             {
-				ButtonWithSpinner.IsEnabled = true;
+				SignupButton.IsEnabled = true;
 			} else
             {
-				ButtonWithSpinner.IsEnabled = false;
+				SignupButton.IsEnabled = false;
 			}
 		}
 

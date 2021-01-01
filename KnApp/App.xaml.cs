@@ -8,6 +8,7 @@ namespace KnApp
     public partial class App : Application
     {
         public static string Host = "https://knapp.azurewebsites.net";
+        //public static string Host = "http://192.168.0.78";
         public static bool IsUserLoggedIn {
             get {
                 return Token != null;
@@ -30,6 +31,7 @@ namespace KnApp
 
         public App()
         {
+            InitializeComponent();
             if (!IsUserLoggedIn)
             {
                 MainPage = new NavigationPage(new LoginPage());

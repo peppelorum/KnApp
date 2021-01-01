@@ -20,6 +20,8 @@ namespace KnApp
 
 		async void OnLoginButtonClicked(object sender, EventArgs e)
 		{
+			LoginButton.IsBusy = true;
+
 			var user = new User
 			{
 				Email = usernameEntry.Text,
@@ -34,6 +36,8 @@ namespace KnApp
 
 				if (response.StatusCode == 200 || response.StatusCode == 201)
 				{
+					LoginButton.IsBusy = false;
+
 					var result = await response.GetJsonAsync<Token>();
 					App.Token = result.APIToken.ToString();
 
@@ -45,6 +49,8 @@ namespace KnApp
                 }
 				else
 				{
+					LoginButton.IsBusy = false;
+
 					var error = await response.GetStringAsync();
 					Console.WriteLine($"We did something wrong! {error}");
 					await DisplayAlert("Ooops!", error, "OK");
@@ -52,6 +58,8 @@ namespace KnApp
 			}
 			catch (FlurlHttpException flurlexception)
 			{
+				LoginButton.IsBusy = false;
+
 				var error = await flurlexception.GetResponseStringAsync();
                 await DisplayAlert("Ooops!", error, "OK");
 

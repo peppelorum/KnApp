@@ -12,14 +12,13 @@
 	</ContentPage.Padding>
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="StartAndExpand">
-			<Label Text="Email address" />
+			<Label Text="Epostadress" />
 			<Entry x:Name="emailEntry" Keyboard="Email" TextChanged="FormIsValid"  />
-			<Label Text="Password" />
+			<Label Text="Lösenord" />
 			<Entry x:Name="passwordEntry" IsPassword="true" TextChanged="FormIsValid" />
-			<Label Text="Password again" />
+			<Label Text="Repetera lösenord" />
 			<Entry x:Name="passwordConfirmEntry" IsPassword="true" TextChanged="FormIsValid"  />
-			<local:ButtonWithActivityIndicator x:Name="ButtonWithSpinner" IsEnabled="False" Text="Registrera" Clicked="OnSignUpButtonClicked" ActivityIndicatorColor="White"></local:ButtonWithActivityIndicator>
-			<!--<Button Text="Sign Up" Clicked="OnSignUpButtonClicked" />-->
+			<local:ButtonWithActivityIndicator x:Name="SignupButton" IsEnabled="False" Text="Registrera" Clicked="OnSignUpButtonClicked" ActivityIndicatorColor="White"></local:ButtonWithActivityIndicator>
 			<Label x:Name="messageLabel" />
 		</StackLayout>
 	</ContentPage.Content>
