@@ -34,6 +34,8 @@ namespace KnApp
 			var signupValid = AreDetailsValid(user);
 			var registered = false;
 
+			SignupButton.IsBusy = true;
+
 			//return;
 
 			try
@@ -113,6 +115,7 @@ namespace KnApp
 			}
 			else
 			{
+				SignupButton.IsBusy = false;
 				messageLabel.Text = "Sign up failed";
 			}
 		}

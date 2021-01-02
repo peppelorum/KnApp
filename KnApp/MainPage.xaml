@@ -13,7 +13,7 @@
         </OnPlatform>
 	</ContentPage.Padding>
 	<ContentPage.Content>
-		<StackLayout>
+		<StackLayout VerticalOptions="EndAndExpand">
 
 		    <!--<maps:Map x:Name="map" IsShowingUser="True"  />-->
 
@@ -24,7 +24,7 @@
 				Clicked="OnImageLocationClicked"
 				ActivityIndicatorColor="White"
 				HorizontalOptions="Center"
-				VerticalOptions="Center">
+				VerticalOptions="End">
 			</local:ButtonWithActivityIndicator>
 
 			<local:ButtonWithActivityIndicator
@@ -33,7 +33,7 @@
 				Clicked="OnLocationClicked"
 				ActivityIndicatorColor="White"
 				HorizontalOptions="Center"
-				VerticalOptions="Center">
+				VerticalOptions="End">
 			</local:ButtonWithActivityIndicator>
 			
 		</StackLayout>

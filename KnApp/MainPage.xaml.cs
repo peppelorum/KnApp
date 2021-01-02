@@ -89,7 +89,7 @@ namespace KnApp
                 await LoadPhotoAsync(photo);
                 Console.WriteLine($"CapturePhotoAsync COMPLETED: {PhotoPath}");
 
-                await GetCurrentLocation();
+                //await GetCurrentLocation();
 
                 try
                 {
