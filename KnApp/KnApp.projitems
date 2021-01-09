@@ -43,6 +43,7 @@
       <DependentUpon>ButtonWithActivityIndicator.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Token.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageResizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Styles.xml" />

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Flurl.Http;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using FFImageLoading;
 
 namespace KnApp
 {
@@ -37,21 +38,25 @@ namespace KnApp
             catch (FeatureNotSupportedException fnsEx)
             {
                 Console.WriteLine(fnsEx.Message);
+                await DisplayAlert("Ooops!", fnsEx.Message, "OK");
                 // Handle not supported on device exception
             }
             catch (FeatureNotEnabledException fneEx)
             {
                 Console.WriteLine(fneEx.Message);
+                await DisplayAlert("Ooops!", fneEx.Message, "OK");
                 // Handle not enabled on device exception
             }
             catch (PermissionException pEx)
             {
                 Console.WriteLine(pEx.Message);
+                await DisplayAlert("Ooops!", pEx.Message, "OK");
                 // Handle permission exception
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                await DisplayAlert("Ooops!", ex.Message, "OK");
                 // Unable to get location
             }
         }
@@ -121,10 +126,61 @@ namespace KnApp
                 return;
             }
             // save the file into local storage
+
+            byte[] imageData;
+
+            //Stream stream = 
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    photo.CopyTo(ms);
+            //    imageData = ms.ToArray();
+            //}
+
+            //byte[] resizedImage = await ImageResizer.ResizeImage(imageData, 400, 400);
+
+            //this._photo.Source = ImageSource.FromStream(() => new MemoryStream(resizedImage));
+
+
+
+            //var newFile = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+            //using (var stream = await photo.OpenReadAsync())
+            //using (var newStream = File.OpenWrite(newFile))
+            //    await stream.CopyToAsync(newStream);
+
+
+
+
+            //await ImageService.Instance.LoadFile()
+
+
+            //var newFile = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+            //var stream = await ImageService.Instance.LoadFile(newFile)
+            //    .DownSample(width: 800)
+            //    .AsJPGStreamAsync();
+
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    stream.CopyTo(ms);
+            //    imageData = ms.ToArray();
+            //}
+
+            //using (var newStream = File.OpenWrite(newFile))
+            //    await stream.CopyToAsync(stream);
+
+
+
+
             var newFile = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-            using (var stream = await photo.OpenReadAsync())
-            using (var newStream = File.OpenWrite(newFile))
-                await stream.CopyToAsync(newStream);
+            var stream = await photo.OpenReadAsync();
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                stream.CopyTo(ms);
+                imageData = ms.ToArray();
+            }
+
+            byte[] resizedImage = await ImageResizer.ResizeImage(imageData, 800);
+            File.WriteAllBytes(newFile, resizedImage);
 
             PhotoPath = newFile;
         }

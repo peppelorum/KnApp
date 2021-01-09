@@ -3,6 +3,9 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+//using Xamarin.Fliclib.Binding.iOS;
+//using Foundation;
+
 namespace KnApp
 {
     public partial class App : Application
@@ -53,5 +56,6 @@ namespace KnApp
         protected override void OnResume()
         {
         }
+
     }
 }
